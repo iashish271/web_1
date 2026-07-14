@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Happy Birthday Talat 🎀</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div id="cursor-glow"></div>
+
+    <!-- Floating Particles Container -->
+    <div id="particles-container"></div>
+
+    <!-- Floating Hearts Container -->
+    <div id="hearts-container"></div>
+
+    <!-- Sparkles Container -->
+    <div id="sparkles-container"></div>
+
+    <!-- Confetti Container -->
+    <div id="confetti-container"></div>
+
+    <!-- Music Control -->
+    <div id="music-control" class="music-control">
+        <button id="music-btn" class="music-btn">
+            <span class="music-icon">🎵</span>
+            <span class="music-wave"></span>
+            <span class="music-wave"></span>
+            <span class="music-wave"></span>
+        </button>
+    </div>
+
+    <audio id="bg-music" loop preload="auto">
+        <source src="images/birthday-music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Progress Bar -->
+    <div id="progress-bar" class="progress-bar">
+        <div class="progress-fill"></div>
+    </div>
+
+    <!-- ==================== SCREEN 1: WELCOME ==================== -->
+    <section id="screen-1" class="screen active">
+        <div class="screen-bg">
+            <div class="watercolor-hearts"></div>
+        </div>
+        <div class="screen-content">
+            <div class="character-container">
+                <img src="images/bubu-dudu-standing.png" alt="Bubu and Dudu" class="character-img breathing-animation">
+            </div>
+            <div class="text-container">
+                <h1 class="main-title typewriter-text" data-text="Hey Birthday Girl 🎀"></h1>
+                <p class="subtitle fade-in-text">I made something special for you...</p>
+            </div>
+            <button class="cute-button bounce-animation" onclick="goToScreen(2)">
+                <span class="btn-text">Tap Here 💌</span>
+                <span class="btn-shine"></span>
+            </button>
+        </div>
+    </section>
+
+    <!-- ==================== SCREEN 2: THE GIFT ==================== -->
+    <section id="screen-2" class="screen">
+        <div class="screen-bg">
+            <div class="watercolor-hearts"></div>
+        </div>
+        <div class="screen-content">
+            <div class="character-container scale-in">
+                <img src="images/dudu-gift.png" alt="Dudu with Gift" class="character-img wiggle-animation">
+            </div>
+            <div class="text-container">
+                <p class="subtitle typewriter-text" data-text="I spent days making this..."></p>
+                <p class="subtitle fade-in-text delay-1">Just for you ❤️</p>
+            </div>
+            <button class="cute-button glow-animation" onclick="goToScreen(3)">
+                <span class="btn-text">What is it? 👀</span>
+                <span class="btn-shine"></span>
+            </button>
+        </div>
+    </section>
+
+    <!-- ==================== SCREEN 3: SPECIAL DAY ==================== -->
+    <section id="screen-3" class="screen">
+        <div class="screen-bg">
+            <div class="sparkle-bg"></div>
+        </div>
+        <div class="screen-content">
+            <div class="quote-container scale-in">
+                <div class="quote-mark">"</div>
+                <p class="quote-text typewriter-text" data-text="Today isn't just another day..."></p>
+                <p class="quote-text fade-in-text delay-1">It's the day someone very special was born.</p>
+                <div class="quote-mark closing">"</div>
+            </div>
+            <div class="flower-divider">
+                <span>🌸</span><span>✨</span><span>🌸</span>
+            </div>
+            <button class="cute-button bounce-animation" onclick="goToScreen(4)">
+                <span class="btn-text">Continue 🎀</span>
+                <span class="btn-shine"></span>
+            </button>
+        </div>
+    </section>
+
+    <!-- ==================== SCREEN 4: HAPPY BIRTHDAY ==================== -->
+    <section id="screen-4" class="screen">
+        <div class="screen-bg">
+            <div class="celebration-bg"></div>
+        </div>
+        <div class="screen-content">
+            <div class="confetti-trigger" id="confetti-trigger"></div>
+            <div class="birthday-container">
+                <h1 class="birthday-title scale-in">🎂 Happy Birthday 🎂</h1>
+                <h2 class="birthday-name glow-text">TALAT</h2>
+                <div class="cake-container">
+                    <img src="images/birthday-cake.png" alt="Birthday Cake" class="cake-img bounce-animation">
+                </div>
+                <div class="balloons-container">
+                    <div class="balloon balloon-1">🎈</div>
+                    <div class="balloon balloon-2">🎈</div>
+                    <div class="balloon balloon-3">🎈</div>
+                    <div class="balloon balloon-4">🎈</div>
+                </div>
+                <div class="character-container hug-container scale-in delay-1">
+                    <img src="images/bubu-dudu-dance.png" alt="Bubu and Dudu celebrating" class="character-img">
+                </div>
+            </div>
+            <button class="cute-button pulse-animation" onclick="goToScreen(5)">
+                <span class="btn-text">Open My Surprise 🎁</span>
+                <span class="btn-shine"></span>
+            </button>
+        </div>
+    </section>
+
+    <!-- ==================== SCREEN 5: MEMORY TIMELINE ==================== -->
+    <section id="screen-5" class="screen timeline-screen">
+        <div class="screen-bg">
+            <div class="watercolor-hearts"></div>
+        </div>
+        <div class="screen-content scrollable">
+            <h2 class="section-title">Our Beautiful Memories ✨</h2>
+            <div class="timeline">
+                <div class="timeline-card scroll-reveal" data-delay="0">
+                    <div class="card-img">
+                        <img src="images/memory-met.jpg" alt="The Day We Met">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-icon">❤️</span>
+                        <h3>The Day We Met</h3>
+                        <p>The day my world changed forever...</p>
+                    </div>
+                </div>
+                <div class="timeline-card scroll-reveal right" data-delay="100">
+                    <div class="card-img">
+                        <img src="images/memory-favorite.jpg" alt="Favorite Memory">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-icon">📸</span>
+                        <h3>Favorite Memory</h3>
+                        <p>A moment I'll treasure always...</p>
+                    </div>
+                </div>
+                <div class="timeline-card scroll-reveal" data-delay="200">
+                    <div class="card-img">
+                        <img src="images/memory-funny.jpg" alt="Funniest Moment">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-icon">😂</span>
+                        <h3>Funniest Moment</h3>
+                        <p>When we laughed until it hurt...</p>
+                    </div>
+                </div>
+                <div class="timeline-card scroll-reveal right" data-delay="300">
+                    <div class="card-img">
+                        <img src="images/memory-talk.jpg" alt="Best Conversation">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-icon">💬</span>
+                        <h3>Best Conversation</h3>
+                        <p>Words that touched my heart...</p>
+                    </div>
+                </div>
+                <div class="timeline-card scroll-reveal" data-delay="400">
+                    <div class="card-img">
+                        <img src="images/memory-night.jpg" alt="Late Night Talks">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-icon">🌙</span>
+                        <h3>Late Night Talks</h3>
+                        <p>Under the stars, just you and me...</p>
+                    </div>
+                </div>
+                <div class="timeline-card scroll-reveal right" data-delay="500">
+                    <div class="card-img">
+                        <img src="images/memory-special.jpg" alt="Special Memory">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-icon">✨</span>
+                        <h3>Special Memory</h3>
+                        <p>Our most magical moment together...</p>
+                    </div>
+                </div>
+            </div>
+            <button class="cute-button" onclick="goToScreen(6)">
+                <span class="btn-text">Open When Letters 💌</span>
+                <span class="btn-shine"></span>
+            </button>
+        </div>
+    </section>
+
+    <!-- ==================== SCREEN 6: OPEN WHEN ENVELOPES ==================== -->
+    <section id="screen-6" class="screen envelope-screen">
+        <div class="screen-bg">
+            <div class="watercolor-hearts"></div>
+        </div>
+        <div class="screen-content scrollable">
+            <h2 class="section-title">Open When... 💌</h2>
+            <p class="section-subtitle">Click each envelope to reveal a special message</p>
+            <div class="envelopes-grid">
+                <div class="envelope-card" onclick="openEnvelope(this)">
+                    <div class="envelope-front">
+                        <div class="envelope-body">
+                            <span class="envelope-icon">💌</span>
+                            <h3>Open When<br>You're Sad</h3>
+                        </div>
+                        <div class="envelope-flap"></div>
+                    </div>
+                    <div class="envelope-inside">
+                        <div class="letter">
+                            <div class="letter-content">
+                                <h4>My Dearest Talat 💕</h4>
+                                <p>I know things might feel heavy right now, but please remember — you are stronger than you know. Every storm passes, and I'll be right here holding your hand through all of them.</p>
+                                <p>You are loved beyond measure. Your smile lights up my world. This sadness is temporary, but my love for you is forever.</p>
+                                <p class="letter-sign">~ Forever Yours 💗</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="envelope-card" onclick="openEnvelope(this)">
+                    <div class="envelope-front">
+                        <div class="envelope-body">
+                            <span class="envelope-icon">💌</span>
+                            <h3>Open When<br>You Miss Me</h3>
+                        </div>
+                        <div class="envelope-flap"></div>
+                    </div>
+                    <div class="envelope-inside">
+                        <div class="letter">
+                            <div class="letter-content">
+                                <h4>My Love 💕</h4>
+                                <p>Close your eyes and feel this hug I'm sending through the distance. Can you feel it? That's my heart beating for you.</p>
+                                <p>Every moment apart makes me cherish every moment together even more. I'm counting the seconds until I see you again.</p>
+                                <p>Look at the moon tonight — we're both under the same sky. That's how close we always are.</p>
+                                <p class="letter-sign">~ Missing You Too 💗</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="envelope-card" onclick="openEnvelope(this)">
+                    <div class="envelope-front">
+                        <div class="envelope-body">
+                            <span class="envelope-icon">💌</span>
+                            <h3>Open When<br>You're Angry</h3>
+                        </div>
+                        <div class="envelope-flap"></div>
+                    </div>
+                    <div class="envelope-inside">
+                        <div class="letter">
+                            <div class="letter-content">
+                                <h4>Hey You 💕</h4>
+                                <p>Take a deep breath with me... In... and out... Feel better? I hope so.</p>
+                                <p>Whatever happened, know that your feelings are valid. You're allowed to be upset. But don't let anger steal your beautiful smile for too long.</p>
+                                <p>I'm always on your side, even when the world feels against you. Let's be angry together, then laugh about it later.</p>
+                                <p class="letter-sign">~ Your Peace 💗</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="envelope-card" onclick="openEnvelope(this)">
+                    <div class="envelope-front">
+                        <div class="envelope-body">
+                            <span class="envelope-icon">💌</span>
+                            <h3>Open When<br>You Feel Alone</h3>
+                        </div>
+                        <div class="envelope-flap"></div>
+                    </div>
+                    <div class="envelope-inside">
+                        <div class="letter">
+                            <div class="letter-content">
+                                <h4>My Precious One 💕</h4>
+                                <p>You are never alone. Even in your darkest moments, I'm right here — in your heart, in your memories, in every love-filled moment we've shared.</p>
+                                <p>The world is brighter because you exist. There are people who love you, who need you, whose lives are better because you're in them.</p>
+                                <p>Reach out. I'm here. Always.</p>
+                                <p class="letter-sign">~ Right Beside You 💗</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="envelope-card" onclick="openEnvelope(this)">
+                    <div class="envelope-front">
+                        <div class="envelope-body">
+                            <span class="envelope-icon">💌</span>
+                            <h3>Open When<br>You Need Motivation</h3>
+                        </div>
+                        <div class="envelope-flap"></div>
+                    </div>
+                    <div class="envelope-inside">
+                        <div class="letter">
+                            <div class="letter-content">
+                                <h4>My Star 💕</h4>
+                                <p>You are capable of amazing things. The same person who has overcome every challenge so far is reading this right now.</p>
+                                <p>Don't give up. You're closer than you think. One step at a time, one breath at a time. You've got this, and I've got you.</p>
+                                <p>Remember: Diamonds are made under pressure, and you're the brightest diamond I know.</p>
+                                <p class="letter-sign">~ Your Biggest Cheerleader 💗</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="envelope-card" onclick="openEnvelope(this)">
+                    <div class="envelope-front">
+                        <div class="envelope-body">
+                            <span class="envelope-icon">🎂</span>
+                            <h3>Open On<br>Your Birthday</h3>
+                        </div>
+                        <div class="envelope-flap"></div>
+                    </div>
+                    <div class="envelope-inside">
+                        <div class="letter">
+                            <div class="letter-content birthday-letter">
+                                <h4>🎉 Happy Birthday My Love! 🎉</h4>
+                                <p>Today we celebrate the most wonderful person in my world — YOU!</p>
+                                <p>On this day, a beautiful soul named Talat came into this world and made everything brighter. I'm so grateful you exist.</p>
+                                <p>May this year bring you endless joy, love, and all the dreams your heart desires. You deserve the universe and more.</p>
+                                <p>Happy Birthday, my love. This is YOUR day! 🎂✨</p>
+                                <p class="letter-sign">~ With All My Love 💗</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="cute-button" onclick="goToScreen(7)">
+                <span class="btn-text">A Secret Message 🔮</span>
+                <span class="btn-shine"></span>
+            </button>
+        </div>
+    </section>
+
+    <!-- ==================== SCREEN 7: SECRET MESSAGE ==================== -->
+    <section id="screen-7" class="screen">
+        <div class="screen-bg night-sky-bg">
+            <div class="stars-container" id="stars-container"></div>
+        </div>
+        <div class="screen-content">
+            <div class="character-container scale-in">
+                <img src="images/dudu-flowers.png" alt="Dudu giving flowers" class="character-img breathing-animation">
+            </div>
+            <div class="secret-message-container">
+                <p class="secret-text typewriter-text" data-text="No matter what happens..."></p>
+                <p class="secret-text fade-in-text delay-1">Thank you for being part of my life.</p>
+                <p class="secret-text fade-in-text delay-2">I'll always be cheering for you.</p>
+            </div>
+            <div class="floating-hearts-container">
+                <div class="floating-heart">💗</div>
+                <div class="floating-heart">💗</div>
+                <div class="floating-heart">💗</div>
+            </div>
+            <button class="cute-button glow-animation" onclick="goToScreen(8)">
+                <span class="btn-text">One Last Thing... 💫</span>
+                <span class="btn-shine"></span>
+            </button>
+        </div>
+    </section>
+
+    <!-- ==================== SCREEN 8: FINAL ==================== -->
+    <section id="screen-8" class="screen final-screen">
+        <div class="screen-bg">
+            <div class="celebration-bg"></div>
+        </div>
+        <div class="screen-content">
+            <div class="final-hearts-container">
+                <div class="final-heart">💗</div>
+                <div class="final-heart">💗</div>
+                <div class="final-heart">💗</div>
+                <div class="final-heart">💗</div>
+                <div class="final-heart">💗</div>
+            </div>
+            <div class="final-messages">
+                <h2 class="final-text scale-in">You are loved.</h2>
+                <h2 class="final-text scale-in delay-1">You are appreciated.</h2>
+                <h2 class="final-text scale-in delay-2">You are special.</h2>
+            </div>
+            <div class="final-birthday glow-text">
+                <h1>HAPPY BIRTHDAY ❤️</h1>
+            </div>
+            <div class="character-container scale-in delay-3">
+                <img src="images/bubu-dudu-hug.png" alt="Bubu and Dudu hugging" class="character-img breathing-animation">
+            </div>
+            <div class="credit-text fade-in-text delay-4">
+                <p>Made with 💗 for Talat</p>
+                <p class="bubu-dudu-credit">From Bubu & Dudu</p>
+            </div>
+            <button class="cute-button restart-btn" onclick="goToScreen(1)">
+                <span class="btn-text">Watch Again 🔄</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Envelope Modal Overlay -->
+    <div id="modal-overlay" class="modal-overlay" onclick="closeEnvelope()"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
